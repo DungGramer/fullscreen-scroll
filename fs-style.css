@@ -1,0 +1,113 @@
+.header__sliders {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-top: 40px;
+  z-index: 1;
+  padding: 0 15px;
+}
+
+.fullscreen {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  content-visibility: auto;
+  touch-action: none;
+}
+
+.fullscreen .sliders {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  scroll-behavior: smooth;
+  will-change: transform;
+  /* Timing */
+  transition: transform 1000ms ease;
+  -webkit-transition: transform 1000ms ease;
+  -moz-transition: transform 1000ms ease;
+  -ms-transition: transform 1000ms ease;
+  -o-transition: transform 1000ms ease;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+   * Navigation
+   */
+#fs-navigation {
+  position: fixed;
+  list-style: none;
+  z-index: 100;
+  top: 50%;
+  right: 24px;
+  text-align: right;
+  transform: translateY(-50%);
+}
+
+#fs-navigation li {
+  width: 16px;
+  height: 16px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#fs-navigation li + li {
+  padding-top: 8px;
+}
+
+#fs-navigation li a {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -ms-transition: transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+}
+#fs-navigation li.active a {
+  transform: scale(3);
+}
+
+#fs-navigation li span {
+  position: absolute;
+  opacity: 0;
+  right: 24px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 14px;
+
+  transition: opacity 0.2s ease-in;
+  -webkit-transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -ms-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
+}
+#fs-navigation li:hover span {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fullscreen .sliders,
+  #fs-navigation li a,
+  #fs-navigation li span {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+  }
+}
